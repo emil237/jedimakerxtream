@@ -29,20 +29,22 @@ echo "==========================================================================
 echo "   Install Plugin please wait "
 cd /tmp 
 set -e
-if which dpkg > /dev/null 2>&1; then
+if which dpkg > /dev/null 2>&1;
+wait
+rm -f /tmp/$MY_DEB then
 wget "$MY_URL/$MY_IPK"
  wait
 		dpkg -i --force-overwrite $MY_DEB; apt-get install -f -y
 	else
 wget "$MY_URL/$MY_DEB"
 		opkg install --force-overwrite $MY_IPK
+wait
+rm -f /tmp/$MY_IPK
 	fi
 echo "================================="
 set +e
 cd ..
 wait
-rm -f /tmp/$MY_IPK
-rm -f /tmp/$MY_DEB
 	if [ $? -eq 0 ]; then
 echo ">>>>  SUCCESSFULLY INSTALLED <<<<"
 fi
