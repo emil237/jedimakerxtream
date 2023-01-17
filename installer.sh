@@ -31,12 +31,12 @@ cd /tmp
 set -e
 if which dpkg > /dev/null 2>&1;
 wait
-rm -f /tmp/$MY_DEB then
-wget "$MY_URL/$MY_IPK"
- wait
-		dpkg -i --force-overwrite $MY_DEB; apt-get install -f -y
-	else
 wget "$MY_URL/$MY_DEB"
+		dpkg -i --force-overwrite $MY_DEB; apt-get install -f -y
+wait
+rm -f /tmp/$MY_DEB
+	else
+wget "$MY_URL/$MY_IPK"
 		opkg install --force-overwrite $MY_IPK
 wait
 rm -f /tmp/$MY_IPK
@@ -60,6 +60,7 @@ wait
 init 4
 init 3
 exit 0
+
 
 
 
