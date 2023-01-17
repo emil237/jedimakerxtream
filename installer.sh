@@ -10,8 +10,8 @@ echo "**************************************************************************
 TMPDIR='/tmp'
 VERSION='6.20'
 MY_URL='https://raw.githubusercontent.com/emil237/jedimakerxtream/main'
-MY_IPK=enigma2-plugin-extensions-jedimakerxtream_6.20_all.ipk
-MY_DEB=enigma2-plugin-extensions-jedimakerxtream_6.20_all.deb
+MY_IPK="enigma2-plugin-extensions-jedimakerxtream_6.21_all.ipk"
+MY_DEB="enigma2-plugin-extensions-jedimakerxtream_6.21_all.deb"
 ####################
 MY_EM='============================================================================================================'
 #  Remove Old Plugin  #
@@ -27,18 +27,15 @@ echo "==========================================================================
  echo " DOWNLOAD AND INSTALL PLUGIN "
 
 echo "   Install Plugin please wait "
-
 cd /tmp 
-
 set -e
-     wget "$MY_URL/$MY_IPK"
-  wait
-     wget "$MY_URL/$MY_DEB"
-
 if which dpkg > /dev/null 2>&1; then
+wget "$MY_URL/$MY_IPK"
+ wait
 		dpkg -i --force-overwrite $MY_DEB; apt-get install -f -y
 	else
-		opkg install --force-reinstall $MY_IPK
+wget "$MY_URL/$MY_DEB"
+		opkg install --force-overwrite $MY_IPK
 	fi
 echo "================================="
 set +e
@@ -61,6 +58,9 @@ wait
 init 4
 init 3
 exit 0
+
+
+
 
 
 
