@@ -8,7 +8,7 @@
 echo "***********************************************************************************************************************"
 # Config script #
 TMPDIR='/tmp'
-VERSION='6.20'
+VERSION='6.21'
 MY_URL='https://raw.githubusercontent.com/emil237/jedimakerxtream/main'
 MY_IPK="enigma2-plugin-extensions-jedimakerxtream_6.21_all.ipk"
 MY_DEB="enigma2-plugin-extensions-jedimakerxtream_6.21_all.deb"
@@ -60,6 +60,7 @@ wait
 init 4
 init 3
 exit 0
+
 
 
 
